@@ -1,0 +1,12 @@
+.container-fluid
+  h2
+    = link_to 'GO to DOCUMENTATION'
+  h3
+    = link_to 'View the source code on GitHub', 'https://github.com/asfarto/remm'
+  h4
+    | Last Deploy done in #{@time}
+hr
+
+
+.container.rendered-markdown
+  = simple_format render file: "#{Rails.root}/README.rdoc"

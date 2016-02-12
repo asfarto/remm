@@ -1,3 +1,11 @@
+= README
+
+En el entorno de desarrollo (OS X), puedes instalar el servidor elasticsearch a través del manejador de paquetes brew.
+
+```bash
+brew install elasticsearch
+```
+
 == README
 
 This README would normally document whatever steps are necessary to get the
