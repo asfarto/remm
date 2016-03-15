@@ -39,11 +39,10 @@ end
 
 group :development do
   # Access an IRB console on exception pages or by using <%= console %> in views
-  gem 'web-console'
+  # gem 'web-console'
 
   # Spring speeds up development by keeping your application running in the background. Read more: https://github.com/rails/spring
   gem 'spring'
-
   gem 'puma'
 end
 
@@ -70,4 +69,3 @@ gem 'elasticsearch-rails'
 gem 'sidekiq'
 
 gem 'kramdown'
-gen 'redcarpet'
