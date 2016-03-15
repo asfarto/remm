@@ -6,6 +6,9 @@ class User < ActiveRecord::Base
 
   include Searchable
 
+  after_save    { Indexer::User.perform_async(self.id, :index) }
+  after_destroy { Indexer::User.perform_async(self.id, :delete) }
+
   index_name "users-#{Rails.env}"
 
   settings index: { number_of_shards: 2, number_of_replicas: 2 },
@@ -43,6 +46,10 @@ class User < ActiveRecord::Base
       indexes :username,    type: :completion, payloads: true
       indexes :email,       type: :string
     end
+  end
+
+  def as_indexed_json(options={})
+    as_json(only: [:id, :first_name, :last_name, :username, :email])
   end
 
   attr_accessor :login
